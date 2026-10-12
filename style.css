@@ -1,0 +1,253 @@
+/* Ye Olde Steak House sample redesign.
+   Palette and framing taken from their own printed menu:
+   green header boards, white menu panels, dark wood behind everything, script wordmark. */
+
+:root {
+  --green: #193B2A;
+  --green-dk: #10281C;
+  --board: #F2F2EE;
+  --ink: #1C1A17;
+  --muted: #5A554D;
+  --wood: #2A0705;
+  --wood-md: #3E0B07;
+  --brass: #C9A14A;
+  --rule: #CFCFC6;
+  --wrap: 1120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: "Alegreya Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--wood) url("img/wood-tile-1400.webp") center top / 1400px auto repeat;
+  overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--green); }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--brass); outline-offset: 2px; }
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 16px; }
+.skip { position: absolute; left: -9999px; top: 0; background: #fff; color: var(--ink); padding: 8px 12px; z-index: 10; }
+.skip:focus { left: 8px; top: 8px; }
+
+h1, h2, h3 { font-family: "Alegreya Sans SC", "Helvetica Neue", Arial, sans-serif; font-weight: 800; line-height: 1.1; margin: 0 0 0.5em; letter-spacing: 0.01em; }
+h1 { font-size: clamp(1.9rem, 6.4vw, 3.1rem); }
+h2 { font-size: clamp(1.45rem, 4.4vw, 2.1rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1em; }
+
+/* Sample ribbon */
+.ribbon { background: #0B0B0A; color: #ECEAE4; font-size: 0.88rem; padding: 7px 0; border-bottom: 3px solid var(--brass); }
+.ribbon strong { color: var(--brass); text-transform: uppercase; letter-spacing: 0.08em; margin-right: 8px; }
+
+/* Header: the green menu board with the script name */
+.site-head { padding: 14px 0 0; }
+.head-board { background: var(--green); color: #fff; border: 6px solid var(--board); box-shadow: 0 4px 14px rgba(0,0,0,.45); position: relative; }
+.head-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; padding: 8px 14px 4px; }
+.brand { color: #fff; text-decoration: none; display: block; min-width: 0; }
+.brand .script { font-family: "Italianno", "Savoye LET", cursive; font-size: clamp(2.6rem, 11vw, 4.2rem); line-height: 1; display: block; white-space: nowrap; }
+.brand .since { display: block; font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; letter-spacing: 0.12em; font-size: 0.85rem; color: #D9E2DC; margin-top: -2px; }
+.head-phone { color: #fff; text-decoration: none; font-family: "Alegreya Sans SC", sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.03em; border: 2px solid rgba(255,255,255,.55); padding: 6px 12px; white-space: nowrap; }
+.head-phone span { display: block; font-size: 0.72rem; letter-spacing: 0.14em; color: #D9E2DC; font-weight: 700; line-height: 1; }
+.main-nav { border-top: 1px solid rgba(255,255,255,.22); }
+.main-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+.main-nav li { flex: 1 1 auto; }
+.main-nav a { display: block; text-align: center; color: #fff; text-decoration: none; padding: 10px 8px; font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; letter-spacing: 0.06em; font-size: 1.02rem; }
+.main-nav a:hover { background: var(--green-dk); }
+.main-nav a[aria-current="page"] { background: var(--board); color: var(--green); }
+
+/* Panels framed like their menu: white boards with corner brackets */
+.board { background: var(--board); position: relative; border: 1px solid #DAD9D2; box-shadow: 0 6px 18px rgba(0,0,0,.5); }
+.board::before, .board::after { content: ""; position: absolute; width: 22px; height: 22px; border: 4px solid #3A3A38; pointer-events: none; }
+.board::before { top: -6px; left: -6px; border-right: 0; border-bottom: 0; }
+.board::after { bottom: -6px; right: -6px; border-left: 0; border-top: 0; }
+.board-head { background: var(--green); color: #fff; margin: 0; padding: 10px 16px; text-align: center; font-size: clamp(1.3rem, 4vw, 1.75rem); }
+.board-body { padding: 18px 16px; }
+.section { padding: 26px 0; }
+.on-wood { color: #F2EDE6; }
+.on-wood a { color: #F2D58A; }
+
+/* Buttons */
+.btn { display: inline-block; text-decoration: none; font-family: "Alegreya Sans SC", sans-serif; font-weight: 800; letter-spacing: 0.04em; font-size: 1.08rem; padding: 12px 18px; background: var(--board); color: var(--green); border: 2px solid var(--board); }
+.btn:hover { background: #fff; }
+.btn-line { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.btn-line:hover { background: var(--green-dk); }
+.btn-green { background: var(--green); color: #fff; border-color: var(--green); }
+.btn-green:hover { background: var(--green-dk); }
+.cta-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 14px; }
+
+/* Hero */
+.hero { padding: 20px 0 10px; }
+.hero-grid { display: grid; gap: 18px; }
+.hero-photo { margin: 0; border: 8px solid var(--board); box-shadow: 0 6px 18px rgba(0,0,0,.55); background: var(--board); display: flex; flex-direction: column; }
+.hero-photo img { flex: 1 1 auto; width: 100%; object-fit: cover; min-height: 0; }
+.hero-photo figcaption { font-size: 0.86rem; color: var(--muted); padding: 6px 4px 0; font-style: italic; }
+.hero-copy { background: var(--green); color: #fff; padding: 20px 18px 16px; border: 6px solid var(--board); box-shadow: 0 6px 18px rgba(0,0,0,.55); }
+.hero-copy .kicker { font-family: "Italianno", cursive; font-size: 2.3rem; line-height: 1; margin: 0 0 6px; color: #E8EFEA; }
+.hero-copy h1 { color: #fff; }
+.hero-copy .sub { color: #E3EAE5; font-size: 1.08rem; }
+.hours-line { font-size: 0.98rem; color: #D9E2DC; border-top: 1px solid rgba(255,255,255,.25); padding-top: 10px; margin: 0; }
+.hours-line strong { color: #fff; }
+
+/* Specials board */
+.specials { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+.day { padding: 14px 4px; border-bottom: 1px solid var(--rule); }
+.day h3 { margin: 0 0 2px; color: var(--green); font-size: 1.05rem; letter-spacing: 0.1em; }
+.day .what { font-family: "Alegreya Sans SC", sans-serif; font-weight: 800; font-size: 1.45rem; margin: 0 0 4px; line-height: 1.1; }
+.day ul { list-style: none; margin: 0; padding: 0; }
+.day li { margin: 2px 0; }
+.fine { font-size: 0.9rem; color: var(--muted); margin: 12px 0 0; }
+
+/* Founders */
+.founders { display: grid; gap: 18px; align-items: start; }
+.photo { margin: 0; background: var(--board); border: 8px solid var(--board); box-shadow: 0 6px 18px rgba(0,0,0,.55); }
+.photo figcaption { font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; font-size: 0.92rem; color: var(--ink); padding: 6px 2px 0; text-align: center; letter-spacing: 0.04em; }
+.story-quote { margin: 0; font-style: italic; font-size: 1.1rem; }
+.story-quote p { margin-bottom: 0.8em; }
+.sign { font-style: normal; font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; color: var(--green); }
+
+/* BYOB stripe: one full-width green band */
+.stripe { background: var(--green); color: #fff; border-top: 6px solid var(--board); border-bottom: 6px solid var(--board); padding: 24px 0; }
+.stripe-grid { display: grid; gap: 10px 28px; align-items: center; }
+.stripe h2 { color: #fff; margin: 0; }
+.stripe p { margin: 0; color: #E3EAE5; }
+.stripe .script { font-family: "Italianno", cursive; font-size: 2.2rem; line-height: 1; color: #E8EFEA; display: block; }
+
+/* Reviews */
+.reviews { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.reviews li { padding: 14px 2px; border-bottom: 1px dotted #A9A89F; }
+.reviews li:last-child { border-bottom: 0; }
+.reviews blockquote { margin: 0 0 6px; font-size: 1.05rem; }
+.reviews .who { font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; color: var(--green); font-size: 0.98rem; }
+.reviews .who span { color: var(--muted); font-weight: 500; }
+.rating-line { font-size: 0.98rem; color: var(--muted); margin: 0 0 6px; text-align: center; }
+
+/* Walls could talk */
+.sayings { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.sayings li { border-left: 3px solid var(--brass); padding: 2px 0 2px 14px; }
+.sayings q { font-family: "Alegreya Sans", sans-serif; font-size: 1.22rem; font-weight: 500; quotes: "\201C" "\201D"; }
+.sayings .by { display: block; font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; color: #F2D58A; font-size: 0.95rem; margin-top: 2px; }
+
+/* Two photos side by side */
+.pair { display: grid; gap: 18px; }
+
+/* Recognition list */
+.honors { list-style: none; margin: 0; padding: 0; columns: 1; }
+.honors li { padding: 7px 0; border-bottom: 1px solid var(--rule); break-inside: avoid; }
+.honors b { font-family: "Alegreya Sans SC", sans-serif; color: var(--green); margin-right: 6px; }
+
+/* Visit strip / footer */
+.visit-grid { display: grid; gap: 18px; }
+.hours { width: 100%; border-collapse: collapse; }
+.hours th, .hours td { text-align: left; padding: 7px 4px; border-bottom: 1px solid var(--rule); }
+.hours th { font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; }
+.hours tr.closed td { color: var(--muted); }
+.addr { font-style: normal; font-size: 1.15rem; line-height: 1.4; margin: 0 0 10px; }
+.big-phone { font-family: "Alegreya Sans SC", sans-serif; font-weight: 800; font-size: 1.7rem; color: var(--green); text-decoration: none; }
+
+.site-foot { background: #0B0B0A; color: #C9C6BE; padding: 26px 0 30px; margin-top: 30px; border-top: 3px solid var(--brass); font-size: 0.95rem; }
+.site-foot a { color: #F2D58A; }
+.foot-grid { display: grid; gap: 14px; }
+.foot-name { font-family: "Italianno", cursive; font-size: 2.4rem; line-height: 1; color: #fff; margin: 0; }
+.site-foot .sample-note { border-top: 1px solid #333; padding-top: 12px; margin-top: 10px; font-size: 0.86rem; color: #A9A69E; }
+
+/* Labeled photo box (photo we still need from the family) */
+.photo-needed { border: 3px dashed #8B8A80; background: #E7E7E1; padding: 22px 16px; text-align: center; color: var(--muted); font-size: 0.98rem; min-height: 160px; display: flex; flex-direction: column; justify-content: center; }
+.photo-needed strong { color: var(--green); font-family: "Alegreya Sans SC", sans-serif; display: block; font-size: 1.05rem; margin-bottom: 4px; }
+
+/* Postcard (their only exterior photo is tiny, so it is shown small on purpose) */
+.postcard { margin: 0; background: #fff; padding: 8px 8px 6px; box-shadow: 0 4px 12px rgba(0,0,0,.45); width: 256px; max-width: 100%; transform: rotate(-2deg); }
+.postcard figcaption { font-family: "Italianno", cursive; font-size: 1.6rem; line-height: 1; text-align: center; color: var(--ink); padding-top: 4px; }
+
+/* ===== MENU PAGE ===== */
+.menu-jump { position: sticky; top: 0; z-index: 5; background: var(--green-dk); border-bottom: 3px solid var(--board); }
+.menu-jump ul { list-style: none; margin: 0 auto; padding: 4px 8px; display: flex; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: thin; max-width: var(--wrap); }
+.menu-jump li { flex: none; }
+.menu-jump a { display: block; color: #fff; text-decoration: none; font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; font-size: 0.95rem; padding: 9px 10px; white-space: nowrap; letter-spacing: 0.03em; }
+.menu-jump a:hover { background: var(--green); }
+.menu-intro { text-align: center; }
+.menu-intro .note { font-style: italic; font-size: 1.08rem; max-width: 46em; margin: 0 auto 0.6em; }
+.menu-grid { display: grid; gap: 30px; }
+.menu-grid > * { scroll-margin-top: 64px; }
+.items { list-style: none; margin: 0; padding: 0; }
+.items li { padding: 10px 0; border-bottom: 1px dotted #A9A89F; }
+.items li:last-child { border-bottom: 0; }
+.row { display: flex; align-items: baseline; gap: 10px; }
+.row .name { font-family: "Alegreya Sans SC", sans-serif; font-weight: 800; font-size: 1.12rem; flex: 1 1 auto; min-width: 0; }
+.row .price { font-weight: 700; font-size: 1.1rem; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.items .desc { margin: 2px 0 0; color: var(--muted); font-size: 0.98rem; }
+.sizes { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.sizes li { border: 1px solid #B9B8AE; padding: 2px 9px; font-size: 0.98rem; background: #fff; border-bottom: 1px solid #B9B8AE; }
+.sizes li b { font-variant-numeric: tabular-nums; }
+.menu-photo { margin: 0 0 14px; border: 6px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,.25); background: #fff; }
+.menu-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.menu-photo figcaption { font-family: "Alegreya Sans SC", sans-serif; font-weight: 700; text-align: center; font-size: 0.9rem; padding-top: 4px; }
+
+.doneness { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+.doneness li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+.doneness li:last-child { border-bottom: 0; }
+.swatch { width: 28px; height: 28px; border-radius: 50%; border: 3px solid #6B3A22; }
+.sw-rare { background: #B0202B; }
+.sw-mr { background: #C8424A; }
+.sw-med { background: #D9787A; }
+.sw-mw { background: #B7877A; }
+.sw-wd { background: #7A5440; }
+.doneness b { font-family: "Alegreya Sans SC", sans-serif; }
+
+.week { display: grid; gap: 0; }
+
+/* ===== STORY PAGE ===== */
+.prose { max-width: 40em; }
+.prose p { font-size: 1.1rem; }
+.people { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.people li { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.people b { font-family: "Alegreya Sans SC", sans-serif; color: var(--green); font-size: 1.15rem; display: block; }
+.page-title { padding: 22px 0 6px; }
+.page-title h1 { color: #fff; margin: 0; text-shadow: 0 2px 6px rgba(0,0,0,.6); }
+.page-title p { color: #E9E2D8; margin: 6px 0 0; font-size: 1.1rem; }
+.rooms { display: grid; gap: 14px; }
+
+@media (min-width: 600px) {
+  .specials { grid-template-columns: 1fr 1fr; }
+  .day { padding: 14px 14px; }
+  .day:nth-child(odd) { border-right: 1px solid var(--rule); }
+  .pair, .rooms { grid-template-columns: 1fr 1fr; }
+  .honors { columns: 2; column-gap: 28px; }
+  .foot-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  body { font-size: 1.1rem; }
+  .wrap { padding: 0 24px; }
+  .board-body { padding: 22px 26px; }
+  .section { padding: 34px 0; }
+  .hero-grid { grid-template-columns: 1.35fr 1fr; align-items: stretch; }
+  .hero-copy { padding: 26px 26px 18px; display: flex; flex-direction: column; justify-content: center; }
+  .specials { grid-template-columns: repeat(4, 1fr); }
+  .day:nth-child(odd) { border-right: 0; }
+  .day { border-right: 1px solid var(--rule); border-bottom: 0; }
+  .day:last-child { border-right: 0; }
+  .founders { grid-template-columns: 1.1fr 1fr; gap: 30px; }
+  .stripe-grid { grid-template-columns: auto 1fr; }
+  .reviews { grid-template-columns: 1fr 1fr; column-gap: 34px; }
+  .reviews li:nth-last-child(2) { border-bottom: 0; }
+  .sayings { grid-template-columns: 1fr 1fr; gap: 18px 34px; }
+  .visit-grid { grid-template-columns: 1fr 1fr 1fr; }
+  .foot-grid { grid-template-columns: 1.2fr 1fr 1fr; }
+  .menu-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+  .menu-grid .span2 { grid-column: 1 / -1; }
+  .menu-jump ul { flex-wrap: wrap; justify-content: center; overflow: visible; }
+  .rooms { grid-template-columns: 1fr 1fr 1fr; }
+  .head-row { padding: 10px 20px 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+.reviews.single { grid-template-columns: 1fr; }
